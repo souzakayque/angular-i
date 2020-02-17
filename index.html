@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Jogo da Forca</title>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+        <script src="app.js"></script>
+        <link rel = "stylesheet" type = "text/css" href = "app.css" />
+    </head>
+
+    <body ng-app="HangmanApp" ng-controller="GameController">
+        
+        <div class="container">
+
+            <div class="title">
+                <h1>
+                    Jogo da Forca
+                </h1>
+            </div>
+
+            <div>
+                <div class="guesses">
+                    <span>
+                        {{ guesses }}
+                    </span>
+                </div>
+    
+                <div class="container-all-user-guesses">
+
+                    <div class="incorrect">
+                        <h3>
+                            Letras Incorretas
+                        </h3> 
+                        <span ng-repeat="letter in incorrectLettersChosen">
+                            {{ letter }}
+                        </span>
+                    </div>
+        
+                    <div class="correct">
+                        <h3>
+                            Letras Corretas
+                        </h3> 
+                        <span ng-repeat="letter in correctLettersChosen">
+                            {{ letter }}
+                        </span>
+                    </div>
+
+                </div>
+    
+                <div>
+                    <div class="word">
+                        <div>
+                            Você precisa adivinhar: 
+                        </div>
+                        <span>
+                            {{ displayWord }}
+                        </span>
+                    </div>
+                </div>
+                <div>
+                    <div class="form">
+                        <input type="text" name="guess" ng-model="input.letter">
+                        <button ng-click="letterChosen()">Enviar</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    
+    </body>
+
+</html>
